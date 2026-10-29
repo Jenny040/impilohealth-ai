@@ -1,0 +1,38 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: impilohealth-api
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/impilohealth_db}
+    username: ${MYSQL_USER:impilo}
+    password: ${MYSQL_PASSWORD:change_me}
+  jpa:
+    hibernate:
+      ddl-auto: update   # dev only; switch to validate + migrations before production
+    open-in-view: false
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:dev-only-secret-change-me-dev-only-secret-change-me}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+  ai:
+    provider: ${AI_PROVIDER:mock}          # pangu (Huawei) | gemini (dev fallback) | mock
+    pangu:
+      endpoint: ${PANGU_ENDPOINT:}
+      api-key: ${PANGU_API_KEY:}
+      model: ${PANGU_MODEL:pangu}
+      auth-header: ${PANGU_AUTH_HEADER:Authorization}
+      auth-prefix: ${PANGU_AUTH_PREFIX:Bearer }
+    gemini:
+      api-key: ${GEMINI_API_KEY:}
+      model: ${GEMINI_MODEL:gemini-1.5-flash}
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:4200}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

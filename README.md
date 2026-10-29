@@ -39,7 +39,7 @@ cp .env.example .env          # fill in your own values — never commit .env
 docker compose up -d          # starts MySQL + Redis
 
 # Backend
-cd backend && ./mvnw spring-boot:run
+cd backend && mvn spring-boot:run
 
 # Frontend (new terminal)
 cd frontend && npm install && npm start
