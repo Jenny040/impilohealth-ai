@@ -15,9 +15,9 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '17'
+          java-version: '21'
           cache: maven
-      - run: cd backend && ./mvnw -B verify
+      - run: cd backend && mvn -B verify
 
   frontend:
     runs-on: ubuntu-latest
