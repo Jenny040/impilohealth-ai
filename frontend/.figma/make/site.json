@@ -1,0 +1,10 @@
+{
+  "description": "Explore South Africa's Pretoria-to-Cape Town rail route with an interactive map featuring station stories, local attractions, and animated journey visualization.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
